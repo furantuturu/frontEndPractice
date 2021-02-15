@@ -270,6 +270,11 @@ header {
         font-size: 1rem;
         color: #fff;
         font-family: 'Karla', sans-serif;
+        cursor: pointer;
+        transition: all 0.2s ease-in;
+        &:hover {
+            background-color: rgba(hsl(71, 59%, 49%), 0.8);
+        }
     }
 }
 
@@ -287,7 +292,7 @@ header {
 @media all and (min-width: 1440px) {
     .container {
         width: 40%;
-        margin: 8rem auto;
+        margin: 15rem auto;
     }
     .flex {
         @include flex(space-between,

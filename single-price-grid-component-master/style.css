@@ -288,6 +288,13 @@ header .desc {
   font-size: 1rem;
   color: #fff;
   font-family: 'Karla', sans-serif;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.main-1 .btn:hover {
+  background-color: rgba(172, 199, 51, 0.8);
 }
 
 .main-2 {
@@ -305,7 +312,7 @@ header .desc {
 @media all and (min-width: 1440px) {
   .container {
     width: 40%;
-    margin: 8rem auto;
+    margin: 15rem auto;
   }
   .flex {
     display: -webkit-box;
