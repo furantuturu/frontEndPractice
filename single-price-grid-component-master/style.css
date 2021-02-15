@@ -309,9 +309,10 @@ header .desc {
   line-height: 20px;
 }
 
-@media all and (min-width: 1440px) {
+@media all and (min-width: 1240px) {
+  /* i use 1368x760 resolution */
   .container {
-    width: 40%;
+    width: 35%;
     margin: 15rem auto;
   }
   .flex {
@@ -341,6 +342,13 @@ header .desc {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 50%;
             flex: 1 0 50%;
+  }
+}
+
+@media all and (min-width: 1440px) {
+  .container {
+    width: 40%;
+    margin: 15rem auto;
   }
 }
 /*# sourceMappingURL=style.css.map */

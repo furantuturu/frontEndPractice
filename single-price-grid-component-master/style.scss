@@ -289,9 +289,10 @@ header {
     }
 }
 
-@media all and (min-width: 1440px) {
+@media all and (min-width: 1240px) {
+    /* i use 1368x760 resolution */
     .container {
-        width: 40%;
+        width: 35%;
         margin: 15rem auto;
     }
     .flex {
@@ -307,5 +308,12 @@ header {
     .main-2 {
         border-radius: 0 0 4px 0;
         flex: 1 0 50%;
+    }
+}
+
+@media all and (min-width: 1440px) {
+    .container {
+        width: 40%;
+        margin: 15rem auto;
     }
 }
