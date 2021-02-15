@@ -1,0 +1,306 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+/* change colours to suit your needs */
+
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+
+
+/* change colours to suit your needs */
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* change border colour to suit your needs */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+@import "../single-price-grid-component-master/variables";
+body {
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    box-sizing: border-box;
+    background: var(--lgray);
+}
+
+.container {
+    width: 80%;
+    margin: 4.5rem auto;
+    box-shadow: 0 7px 10px rgba(#333, .25);
+}
+
+header,
+main,
+footer {
+    padding: 25px;
+}
+
+header {
+    background: #fff;
+    border-radius: 4px 4px 0 0;
+    .title {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--cyan);
+        letter-spacing: 0px;
+        margin-bottom: 25px;
+        text-shadow: 0 0 1px var(--cyan);
+    }
+    .subtitle {
+        margin: 20px 0;
+        color: var(--byellow);
+    }
+    .desc {
+        letter-spacing: -1px;
+        line-height: 30px;
+        color: var(--grayblue);
+        font-size: .95rem;
+        padding-bottom: 5px;
+    }
+}
+
+.main-header {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 1px #fff;
+}
+
+.main-1 {
+    background-color: var(--cyan);
+    .amount {
+        margin-bottom: 10px;
+        @include flex(flex-start,
+        center,
+        row);
+        .value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-right: 10px;
+            color: #fff;
+        }
+        .subscription {
+            color: var(--lgray);
+            opacity: .5;
+        }
+    }
+    .promo {
+        color: #fff;
+        margin-bottom: 15px;
+    }
+    .btn {
+        width: 100%;
+        padding: 15px 0;
+        border-radius: 5px;
+        background: var(--byellow);
+        border: none;
+        outline: none;
+        box-shadow: 0 7px 10px rgba(#333, .25);
+        font-size: 1rem;
+        color: #fff;
+        font-family: 'Karla', sans-serif;
+    }
+}
+
+.main-2 {
+    background-color: var(--cyan);
+    opacity: .8;
+    border-radius: 0 0 4px 4px;
+    .cases {
+        font-size: .9rem;
+        color: var(--lgray);
+        line-height: 20px;
+    }
+}
+
+@media all and (min-width: 1440px) {
+    .container {
+        width: 50%;
+        margin: 8rem auto;
+    }
+    .flex {
+        @include flex(space-between,
+        stretch,
+        row);
+        margin: 0;
+    }
+    .main-1 {
+        border-radius: 0 0 0 4px;
+        flex: 1 0 50%;
+    }
+    .main-2 {
+        border-radius: 0 0 4px 0;
+        flex: 1 0 50%;
+    }
+}
