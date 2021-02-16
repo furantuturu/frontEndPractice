@@ -1,0 +1,302 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+/* change colours to suit your needs */
+
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+
+
+/* change colours to suit your needs */
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* change border colour to suit your needs */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction
+}
+
+@import "../four-card-feature-section-master/variables";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+body {
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--lgray);
+}
+
+.container {
+    width: 85%;
+    margin: 5rem auto;
+    @include flex(center,
+    center,
+    column);
+}
+
+header {
+    margin-bottom: 50px;
+    .header-title {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    .header-title-1 {
+        font-weight: 200;
+        margin-bottom: 10px;
+    }
+    .header-title-2 {
+        margin-bottom: 30px;
+    }
+    .desc {
+        text-align: center;
+        color: var(--dblue);
+        line-height: 20px;
+    }
+}
+
+.card {
+    padding: 30px;
+    background-color: #fff;
+    margin-top: 22px;
+    box-shadow: 0 12px 20px rgba(hsl(234, 12%, 34%), 0.2);
+    border-radius: 4px;
+}
+
+.card-1 {
+    border-top: 4px solid var(--cyan);
+}
+
+.card-2 {
+    border-top: 4px solid var(--red);
+}
+
+.card-3 {
+    border-top: 4px solid var(--orange);
+}
+
+.card-4 {
+    border-top: 4px solid var(--blue);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.card-descrip {
+    font-size: .9rem;
+    line-height: 25px;
+    color: var(--dblue);
+}
+
+.card-icon {
+    width: 64px;
+    margin: 40px 0 0 auto;
+}
+
+@media all and (min-width: 1240px) {
+    .container {
+        width: 80%;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 374px minmax(3rem, 1fr) 374px minmax(3rem, 1fr) 374px;
+        gap: 20px;
+    }
+    header {
+        grid-column: 2 / 5;
+        grid-row: 1 / 2;
+    }
+    main {
+        width: 90%;
+        margin: 0 auto;
+        grid-column: 1 / 6;
+        display: grid;
+        grid-template-columns: repeat(4, 374px);
+        gap: 20px;
+        .card {
+            margin-top: 0;
+        }
+        .card-1 {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+        }
+        .card-2 {
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+        }
+        .card-3 {
+            grid-column: 2 / 3;
+            grid-row: 3 / 5;
+        }
+        .card-4 {
+            grid-column: 3 / 4;
+            grid-row: 2 / 4;
+        }
+    }
+}
