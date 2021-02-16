@@ -274,6 +274,7 @@ header .desc {
 }
 
 @media all and (min-width: 1240px) {
+  /* i dont have 1440px monitor or higher */
   .container {
     width: 80%;
   }
@@ -292,6 +293,16 @@ header .desc {
     -ms-grid-row-span: 1;
     grid-row: 1 / 2;
   }
+  header .header-title {
+    font-size: 2rem;
+  }
+  header .header-title-1 {
+    margin-bottom: 15px;
+  }
+  header .desc {
+    font-size: 1rem;
+    line-height: 25px;
+  }
   main {
     width: 90%;
     margin: 0 auto;
@@ -300,9 +311,9 @@ header .desc {
     grid-column: 1 / 6;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (374px)[4];
-        grid-template-columns: repeat(4, 374px);
-    gap: 20px;
+    -ms-grid-columns: (364px)[4];
+        grid-template-columns: repeat(4, 364px);
+    gap: 30px;
   }
   main .card {
     margin-top: 0;
