@@ -1,0 +1,329 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+/* change colours to suit your needs */
+
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+
+
+/* change colours to suit your needs */
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* change border colour to suit your needs */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import "../huddle-landing-page-with-single-introductory-section-master/variables";
+body {
+    background-image: url(../huddle-landing-page-with-single-introductory-section-master/images/bg-mobile.svg);
+    background-color: var(--violet);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 1.3rem auto;
+    height: 100vh;
+}
+
+header {
+    width: 45%;
+    max-width: 55%;
+    svg {
+        width: 100%;
+    }
+}
+
+.mockup {
+    width: 100%;
+    height: auto;
+    margin-bottom: 4rem;
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+main {
+    margin-top: 3rem;
+    @include flex(space-between,
+    center,
+    column);
+    .details {
+        text-align: center;
+        .header {
+            color: #fff;
+            font-size: 1.5rem;
+            line-height: 35px;
+            margin-bottom: 20px;
+        }
+        .desc {
+            color: #fff;
+            font-size: 1rem;
+            line-height: 25px;
+            font-weight: 200;
+        }
+        .register {
+            width: 70%;
+            border: none;
+            outline: none;
+            background-color: #fff;
+            color: var(--violet);
+            padding: 10px;
+            border-radius: 99px;
+            box-shadow: 0 5px 5px rgba(#111, .2);
+            cursor: pointer;
+            margin: 25px 0;
+        }
+    }
+}
+
+footer {
+    height: 100px;
+    @include flex(center,
+    center,
+    row);
+    .social-links {
+        margin: 0 .5rem;
+        .fab {
+            font-size: 1.6rem;
+            color: #fff;
+        }
+    }
+}
+
+@media all and (min-width: 1240px) {
+    body {
+        background-image: url(../huddle-landing-page-with-single-introductory-section-master/images/bg-desktop.svg);
+    }
+    .container {
+        width: 90%;
+        height: 77.5vh;
+    }
+    header {
+        svg {
+            width: 50%;
+        }
+    }
+    .mockup {
+        flex: 0 0 50%;
+    }
+    main {
+        @include flex(space-between,
+        flex-start,
+        row);
+        .details {
+            flex: 0 0 45%;
+            text-align: left;
+            margin-top: 2rem;
+            .header {
+                font-size: 2.7rem;
+                line-height: 55px;
+                font-weight: 600;
+            }
+            .desc {
+                font-size: 1rem;
+                line-height: 25px;
+            }
+            .register {
+                width: 30%;
+                transition: all 0.2s ease;
+                &:hover {
+                    background-color: var(--magenta);
+                    color: #fff;
+                }
+            }
+        }
+    }
+    footer {
+        @include flex(flex-end,
+        center,
+        row);
+        padding: 0 60px;
+        .social-links {
+            .fab {
+                font-size: 1.8rem;
+                transition: color 0.2s ease;
+                &:hover {
+                    color: var(--magenta);
+                }
+            }
+        }
+    }
+}

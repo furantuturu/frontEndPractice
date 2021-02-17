@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+:root {
+  /* primary */
+  --violet: hsl(257, 40%, 49%);
+  --magenta: hsl(300, 69%, 71%);
+}
+
+body {
+  background-image: url(../huddle-landing-page-with-single-introductory-section-master/images/bg-mobile.svg);
+  background-color: var(--violet);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 1.3rem auto;
+  height: 100vh;
+}
+
+header {
+  width: 45%;
+  max-width: 55%;
+}
+
+header svg {
+  width: 100%;
+}
+
+.mockup {
+  width: 100%;
+  height: auto;
+  margin-bottom: 4rem;
+}
+
+.mockup svg {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  margin-top: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .details {
+  text-align: center;
+}
+
+main .details .header {
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 35px;
+  margin-bottom: 20px;
+}
+
+main .details .desc {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 25px;
+  font-weight: 200;
+}
+
+main .details .register {
+  width: 70%;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  color: var(--violet);
+  padding: 10px;
+  border-radius: 99px;
+  -webkit-box-shadow: 0 5px 5px rgba(17, 17, 17, 0.2);
+          box-shadow: 0 5px 5px rgba(17, 17, 17, 0.2);
+  cursor: pointer;
+  margin: 25px 0;
+}
+
+footer {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+footer .social-links {
+  margin: 0 .5rem;
+}
+
+footer .social-links .fab {
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+@media all and (min-width: 1240px) {
+  body {
+    background-image: url(../huddle-landing-page-with-single-introductory-section-master/images/bg-desktop.svg);
+  }
+  .container {
+    width: 90%;
+    height: 77.5vh;
+  }
+  header svg {
+    width: 50%;
+  }
+  .mockup {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+  }
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  main .details {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 45%;
+            flex: 0 0 45%;
+    text-align: left;
+    margin-top: 2rem;
+  }
+  main .details .header {
+    font-size: 2.7rem;
+    line-height: 55px;
+    font-weight: 600;
+  }
+  main .details .desc {
+    font-size: 1rem;
+    line-height: 25px;
+  }
+  main .details .register {
+    width: 30%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  main .details .register:hover {
+    background-color: var(--magenta);
+    color: #fff;
+  }
+  footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 0 60px;
+  }
+  footer .social-links .fab {
+    font-size: 1.8rem;
+    -webkit-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+  }
+  footer .social-links .fab:hover {
+    color: var(--magenta);
+  }
+}
+/*# sourceMappingURL=style.css.map */
