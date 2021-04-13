@@ -1,0 +1,197 @@
+/***********************
+    VARIABLES
+************************/
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+:root {
+  /*******
+    PRIMARY
+*******/
+  --desat-red: hsl(0, 36%, 70%);
+  --sof-red: hsl(0, 93%, 68%);
+  /*******
+    NEUTRAL
+*******/
+  --darkg-red: hsl(0, 6%, 24%);
+  /*******
+    GRADIENT
+*******/
+  --grad1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --grad2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+/***********************
+    BREAKPOINTS
+************************/
+/***********************
+    FONTS
+************************/
+html {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: table-cell;
+  width: 100%;
+  background: var(--grad1);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+}
+
+header {
+  padding: 40px;
+}
+
+main {
+  margin: 60px 30px;
+}
+
+main .title,
+main .bold,
+main p {
+  text-align: center;
+  color: var(--desat-red);
+}
+
+main .title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 13px;
+}
+
+main .bold {
+  color: var(--darkg-red);
+  font-size: 2.5rem;
+  letter-spacing: 13px;
+}
+
+main p {
+  margin: 25px 20px;
+  word-spacing: 4px;
+}
+
+main form {
+  margin-top: 30px;
+  /* == when the error occurs == */
+}
+
+main form .input-field {
+  position: relative;
+  /* == error elements == */
+  /* ============== */
+}
+
+main form .input-field #email {
+  width: calc(100% - 90px);
+  padding: 15px 30px;
+  border-radius: 9999px;
+  border: 2px solid var(--desat-red);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  color: var(--desat-red);
+  background: var(--grad1);
+}
+
+main form .input-field #email:focus {
+  outline: none;
+}
+
+main form .input-field .error {
+  position: absolute;
+  top: 15px;
+  right: 90px;
+}
+
+main form .input-field .message {
+  display: inline-block;
+  margin: 10px 0 0 30px;
+  color: var(--sof-red);
+}
+
+main form .input-field .error,
+main form .input-field .message {
+  visibility: hidden;
+}
+
+main form .input-field button {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  padding: 15px 30px;
+  border-radius: 9999px;
+  border: none;
+  background: var(--sof-red);
+  cursor: pointer;
+  -webkit-box-shadow: 0px 7px 16px rgba(65, 58, 58, 0.3);
+          box-shadow: 0px 7px 16px rgba(65, 58, 58, 0.3);
+}
+
+main form .input-field.error-input #email {
+  border: 2px solid var(--sof-red);
+}
+
+main form .input-field.error-input .error,
+main form .input-field.error-input .message {
+  visibility: visible;
+}
+
+/* ========= media query ======== */
+@media (min-width: 1240px) {
+  body {
+    background-image: url(images/bg-pattern-desktop.svg);
+    min-height: 100vh;
+    overflow-y: hidden;
+  }
+  .grid-container {
+    max-width: 1200px;
+    margin-left: auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 57% 43%;
+        grid-template-columns: 57% 43%;
+  }
+  .header {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1 / 2;
+  }
+  picture {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    grid-row: 1 / 4;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / 3;
+  }
+  main {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2 / 3;
+    padding: 60px 8rem 0 40px;
+    margin: 0;
+  }
+  main .title,
+  main .bold,
+  main p {
+    text-align: start;
+  }
+  main .title,
+  main .bold {
+    font-size: 4rem;
+    letter-spacing: 15px;
+  }
+  form {
+    margin-top: 40px;
+  }
+  form .input-field .error {
+    right: 110px !important;
+  }
+  form .input-field button {
+    padding: 15px 40px !important;
+  }
+  form .input-field button:hover {
+    background: var(--grad2);
+  }
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,151 @@
+@import 'bits';
+html {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: table-cell;
+    width: 100%;
+    background: var(--grad1);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: $font;
+}
+
+header {
+    padding: 40px;
+}
+
+main {
+    margin: 60px 30px;
+    .title,
+    .bold,
+    p {
+        text-align: center;
+        color: var(--desat-red);
+    }
+    .title {
+        font-size: 2.5rem;
+        font-weight: 300;
+        letter-spacing: 13px;
+    }
+    .bold {
+        color: var(--darkg-red);
+        font-size: 2.5rem;
+        letter-spacing: 13px;
+    }
+    p {
+        margin: 25px 20px;
+        word-spacing: 4px;
+    }
+    form {
+        margin-top: 30px;
+        .input-field {
+            position: relative;
+            #email {
+                width: calc(100% - 90px);
+                padding: 15px 30px;
+                border-radius: 9999px;
+                border: 2px solid var(--desat-red);
+                font-family: 'Josefin Sans', sans-serif;
+                font-size: $font;
+                color: var(--desat-red);
+                background: var(--grad1);
+                &:focus {
+                    outline: none;
+                }
+            }
+            /* == error elements == */
+            .error {
+                position: absolute;
+                top: 15px;
+                right: 90px;
+            }
+            .message {
+                display: inline-block;
+                margin: 10px 0 0 30px;
+                color: var(--sof-red);
+            }
+            .error,
+            .message {
+                visibility: hidden;
+            }
+            /* ============== */
+            button {
+                position: absolute;
+                top: 0;
+                right: 5px;
+                padding: 15px 30px;
+                border-radius: 9999px;
+                border: none;
+                background: var(--sof-red);
+                cursor: pointer;
+                box-shadow: 0px 7px 16px rgba(hsl(0, 6%, 24%), .3);
+            }
+        }
+        /* == when the error occurs == */
+        .input-field.error-input {
+            #email {
+                border: 2px solid var(--sof-red);
+            }
+            .error,
+            .message {
+                visibility: visible;
+            }
+        }
+    }
+}
+
+
+/* ========= media query ======== */
+
+@include breakpoint(laptop) {
+    body {
+        background-image: url(images/bg-pattern-desktop.svg);
+        min-height: 100vh;
+        overflow-y: hidden;
+    }
+    .grid-container {
+        max-width: 1200px;
+        margin-left: auto;
+        display: grid;
+        grid-template-columns: 57% 43%;
+    }
+    .header {
+        grid-row: 1 / 2;
+    }
+    picture {
+        grid-row: 1 / 4;
+        grid-column: 2 / 3;
+    }
+    main {
+        grid-row: 2 / 3;
+        padding: 60px 8rem 0 40px;
+        margin: 0;
+        .title,
+        .bold,
+        p {
+            text-align: start;
+        }
+        .title,
+        .bold {
+            font-size: 4rem;
+            letter-spacing: 15px;
+        }
+    }
+    form {
+        margin-top: 40px;
+        .input-field {
+            .error {
+                right: 110px !important;
+            }
+            button {
+                padding: 15px 40px !important;
+                &:hover {
+                    background: var(--grad2);
+                }
+            }
+        }
+    }
+}

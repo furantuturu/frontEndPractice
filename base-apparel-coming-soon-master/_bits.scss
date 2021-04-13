@@ -1,0 +1,41 @@
+/***********************
+    VARIABLES
+************************/
+
+:root {
+    /*******
+    PRIMARY
+*******/
+    --desat-red: hsl(0, 36%, 70%);
+    --sof-red: hsl(0, 93%, 68%);
+    /*******
+    NEUTRAL
+*******/
+    --darkg-red: hsl(0, 6%, 24%);
+    /*******
+    GRADIENT
+*******/
+    --grad1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    --grad2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+
+/***********************
+    BREAKPOINTS
+************************/
+
+@mixin breakpoint ($point) {
+    @if $point==laptop {
+        @media (min-width: 1240px) {
+            @content;
+        }
+    }
+}
+
+
+/***********************
+    FONTS
+************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+$font: 16px;

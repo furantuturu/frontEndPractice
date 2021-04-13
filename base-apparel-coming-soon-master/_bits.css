@@ -1,0 +1,27 @@
+/***********************
+    VARIABLES
+************************/
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+:root {
+  /*******
+    PRIMARY
+*******/
+  --desat-red: #ce9797;
+  --sof-red: #f96262;
+  /*******
+    NEUTRAL
+*******/
+  --darkg-red: #413a3a;
+  /*******
+    GRADIENT
+*******/
+  --grad1: linear(135deg, white, #fff5f5);
+  --grad2: linear(135deg, from #f8bfbf, to #ee8c8c);
+}
+
+/***********************
+    BREAKPOINTS
+************************/
+/***********************
+    FONTS
+************************/
