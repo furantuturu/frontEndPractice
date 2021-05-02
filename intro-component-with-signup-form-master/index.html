@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+    <link rel="stylesheet" href="css/resetstylesheet.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js//main.js" defer></script>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">
+                Learn to code by watching others
+            </h1>
+            <p class="details">
+                See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.
+            </p>
+        </header>
+        <div class="child--container">
+            <div class="button">
+                <button type="button" aria-label="button">
+                <b>Try it free 7 days</b> then $20/mo. thereafter
+            </button>
+            </div>
+            <form id="form" action="" method="GET">
+                <fieldset>
+                    <div class="input-container first-name-input-container" aria-label="first-name-input-container">
+                        <input id="fname" type="text" placeholder="First Name">
+                        <small class="error--message" aria-errormessage="First Name cannot be empty">First Name cannot be empty</small>
+                        <svg class="error--icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FF7979" cx="12" cy="12" r="12"/><rect fill="#FFF" x="11" y="6" width="2" height="9" rx="1"/><rect fill="#FFF" x="11" y="17" width="2" height="2" rx="1"/></g></svg>
+                    </div>
+                    <div class="input-container last-name-input-container" aria-label="last-name-input-container">
+                        <input id="lname" type="text" placeholder="Last Name">
+                        <small class="error--message" aria-errormessage="Last Name cannot be empty">Last Name cannot be empty</small>
+                        <svg class="error--icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FF7979" cx="12" cy="12" r="12"/><rect fill="#FFF" x="11" y="6" width="2" height="9" rx="1"/><rect fill="#FFF" x="11" y="17" width="2" height="2" rx="1"/></g></svg>
+                    </div>
+                    <div class="input-container email-input-container" aria-label="email-input-container">
+                        <input id="email" type="email" placeholder="Email Address">
+                        <small class="error--message" aria-errormessage="Looks like this is not an email">Looks like this is not an email</small>
+                        <svg class="error--icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FF7979" cx="12" cy="12" r="12"/><rect fill="#FFF" x="11" y="6" width="2" height="9" rx="1"/><rect fill="#FFF" x="11" y="17" width="2" height="2" rx="1"/></g></svg>
+                    </div>
+                    <div class="input-container password-input-container" aria-label="password-input-container">
+                        <input id="password" type="password" placeholder="Password">
+                        <small class="error--message" aria-errormessage="">Password cannot be empty</small>
+                        <svg class="error--icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FF7979" cx="12" cy="12" r="12"/><rect fill="#FFF" x="11" y="6" width="2" height="9" rx="1"/><rect fill="#FFF" x="11" y="17" width="2" height="2" rx="1"/></g></svg>
+                    </div>
+                    <button type="submit">Claim your free
+                    trial</button>
+                    <small>By clicking the button, you are agreeing to our <a href="#">Terms and Services</a></small>
+                </fieldset>
+            </form>
+        </div>
+        <footer>
+            <p class="attribution">
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="https://www.frontendmentor.io/profile/Haemoffy">Haemoffy</a>.
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
