@@ -1,0 +1,74 @@
+/************************
+        FONTS
+************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/************************
+        VARIABLES
+************************/
+
+
+/* PRIMARY */
+
+$red: hsl(0,
+100%,
+74%);
+$green: hsl(154,
+59%,
+51%);
+
+/* ACCENT */
+
+$blue: hsl(248,
+32%,
+49%);
+
+/* NEUTRAL */
+
+$dblue: hsl(249,
+10%,
+26%);
+$gblue: hsl(246,
+25%,
+77%);
+$white: #fff;
+
+/************************
+        BREAKPOINT
+************************/
+
+@mixin breakpoint($point) {
+    @if $point==tablet {
+        @media(min-width: 768px) {
+            @content;
+        }
+    }
+    @else if $point==laptop {
+        @media(min-width: 1240px) {
+            @content;
+        }
+    }
+    @else {
+        @error "Invalid point #{$point}";
+    }
+}
+
+
+/************************
+        MIX-IN
+************************/
+
+@mixin flexing($position) {
+    display: flex;
+    align-items: center;
+    @if $position==center {
+        justify-content: center;
+    }
+    @else if $position==space-between {
+        justify-content: space-between;
+    }
+    @else {
+        @error "Invalid position #{$position}";
+    }
+}
