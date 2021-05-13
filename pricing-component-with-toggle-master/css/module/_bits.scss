@@ -1,0 +1,44 @@
+/**************
+```Variables```
+**************/
+
+
+/* accent */
+
+$accent: linear-gradient(135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+
+/* neutral */
+
+$very-light-gray-blue: hsl(240, 78%, 98%);
+$light-gray-blue: hsl(234, 14%, 74%);
+$gray-blue: hsl(233, 13%, 49%);
+$dark-gray-blue: hsl(232, 13%, 33%);
+
+/* family */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* breakpoint */
+
+@mixin breakpoint ($point) {
+    @if $point==laptop {
+        @media (min-width: 1240px) {
+            @content;
+        }
+    }
+}
+
+
+/* flex */
+
+@mixin flexy($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @if $direction==column {
+        flex-direction: column;
+    }
+    @else {
+        flex-direction: row;
+    }
+}
