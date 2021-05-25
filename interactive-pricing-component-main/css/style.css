@@ -1,0 +1,438 @@
+/**************
+```Variables```
+**************/
+/* primary */
+/* neutral */
+/* family */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+/* breakpoint */
+/* flex */
+/* custom slider */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+body {
+  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 0.938rem;
+  font-family: 'Manrope';
+  font-weight: 600;
+  background: #fafbff;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0%;
+  background-image: url(../images//bg-pattern.svg);
+  background-position: left 0%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* utilities */
+.gray-text {
+  color: #858fad;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-cta-color {
+  color: #293356;
+}
+
+/* main code */
+.container {
+  margin-inline: 1.7rem;
+}
+
+.header {
+  background: url(../images/pattern-circles.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-block: 10vh 1.9rem;
+  margin-inline: 1.2rem;
+  padding-block: 3.6rem;
+  overflow-x: unset;
+}
+
+.header #title {
+  font-size: clamp(1.4rem, 2.3vw, 3.7rem);
+  margin-block: -1.1rem .5rem;
+}
+
+.header #subtitle {
+  line-height: 1.5rem;
+}
+
+.pricing-component {
+  background: white;
+  border-radius: .9rem;
+  padding: 2rem 1.5rem;
+  -webkit-box-shadow: 0 10px 20px rgba(34, 34, 34, 0.1);
+          box-shadow: 0 10px 20px rgba(34, 34, 34, 0.1);
+}
+
+.pricing-component hr {
+  height: 1px;
+  border-width: 0;
+  background-color: #eaeefb;
+}
+
+.pricing-component .amount-slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pricing-component .amount-slider .page-views {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.pricing-component .amount-slider #slider {
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-transition: .4s;
+  transition: .4s;
+  margin-block: 2.7rem;
+  cursor: pointer;
+}
+
+.pricing-component .amount-slider #slider:hover, .pricing-component .amount-slider #slider:focus {
+  opacity: .8;
+}
+
+.pricing-component .amount-slider #slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  background: #10d5c2 url(../images/icon-slider.svg);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 12px 20px rgba(16, 213, 194, 0.5);
+          box-shadow: 0px 12px 20px rgba(16, 213, 194, 0.5);
+}
+
+.pricing-component .amount-slider #slider::-moz-range-thumb {
+  background: #10d5c2 url(../images/icon-slider.svg);
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0px 12px 20px rgba(16, 213, 194, 0.5);
+}
+
+.pricing-component .amount-slider #slider::-webkit-slider-progress {
+  background-color: #a5f3eb;
+  height: 9px;
+  border-radius: 99px;
+}
+
+.pricing-component .amount-slider #slider::-moz-range-progress {
+  background-color: #a5f3eb;
+  height: 9px;
+  border-radius: 99px;
+}
+
+.pricing-component .amount-slider #slider::-webkit-slider-track {
+  background-color: #cdd7ee;
+  height: 9px;
+  border-radius: 99px;
+  pointer-events: none;
+}
+
+.pricing-component .amount-slider #slider::-moz-range-track {
+  background-color: #cdd7ee;
+  height: 9px;
+  border-radius: 99px;
+  pointer-events: none;
+}
+
+.pricing-component .amount-slider .price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.pricing-component .amount-slider .price .amount {
+  font-size: clamp(2.7rem, 2.5vw, 3.2rem);
+  margin-right: .94rem;
+}
+
+.pricing-component .billing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 1.8rem .8rem;
+}
+
+.pricing-component .billing label {
+  position: relative;
+  width: 70px;
+  height: 35px;
+  margin-inline: .96rem;
+}
+
+.pricing-component .billing label input {
+  display: none;
+}
+
+.pricing-component .billing label .toggler-ball {
+  position: absolute;
+  left: -.48rem;
+  min-width: 70px;
+  min-height: 35px;
+  background-color: #cdd7ee;
+  border-radius: 99px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.pricing-component .billing label .toggler-ball:hover, .pricing-component .billing label .toggler-ball:focus {
+  background-color: #10d5c2;
+}
+
+.pricing-component .billing label .toggler-ball::before {
+  position: absolute;
+  content: '';
+  top: 4px;
+  left: 4px;
+  width: calc(35px - 9px);
+  height: calc(35px - 9px);
+  background: white;
+  border-radius: 50%;
+  -webkit-transition: .4s;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.pricing-component .billing label input:checked + .toggler-ball::before {
+  -webkit-transform: translateX(36px);
+          transform: translateX(36px);
+}
+
+.pricing-component .billing .annual-discount {
+  background: #feece7;
+  color: #ff8c66;
+  border-radius: 99px;
+  margin-right: -1.7rem;
+  padding: .2rem .3rem;
+}
+
+.pricing-component .billing .annual-discount .discount {
+  display: none;
+}
+
+.pricing-component .benefits {
+  margin-block: 1.8rem;
+}
+
+.pricing-component .benefits ::marker {
+  content: '';
+}
+
+.pricing-component .benefits .benefits-lists li + li {
+  margin-top: .65rem;
+}
+
+.pricing-component .benefits .benefits-lists li::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: .9rem;
+  color: #10d5c2;
+  margin-right: .9rem;
+}
+
+.pricing-component .benefits button {
+  margin-top: 2.1rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 1rem 3.5rem;
+  border-radius: 99px;
+  background-color: #293356;
+  -webkit-box-shadow: 0 3px #293356;
+          box-shadow: 0 3px #293356;
+  color: #bdccff;
+  font-family: 'Manrope';
+  font-weight: 800;
+  letter-spacing: 1px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.pricing-component .benefits button:hover, .pricing-component .benefits button:focus {
+  color: white;
+}
+
+@media (min-width: 445px) {
+  .pricing-component .billing label .toggler-ball {
+    left: 0;
+  }
+}
+
+@media (min-width: 1240px) {
+  .container {
+    max-width: 768px;
+    margin: auto;
+  }
+  .header .subtitle-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .pricing-component {
+    padding: 3rem;
+  }
+  .pricing-component .amount-slider {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .pricing-component .amount-slider .page-views {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    margin: 0;
+    text-align: start;
+  }
+  .pricing-component .amount-slider #slider {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    margin-block: 1.8rem;
+  }
+  .pricing-component .amount-slider .price {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    margin: 0;
+  }
+  .pricing-component .billing {
+    margin-block: 1.8rem 3rem;
+  }
+  .pricing-component .billing .annual-discount {
+    margin-inline: .9rem -2.7rem;
+  }
+  .pricing-component .billing .annual-discount .discount {
+    display: inline-block;
+  }
+  .pricing-component .benefits {
+    margin-block: 2.7rem 0;
+    text-align: start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .pricing-component .benefits .benefits-lists {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .pricing-component .benefits button {
+    -ms-flex-preferred-size: 35%;
+        flex-basis: 35%;
+    margin: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */

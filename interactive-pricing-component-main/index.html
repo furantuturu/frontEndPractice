@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <script src="https://kit.fontawesome.com/9e357cf725.js" crossorigin="anonymous"></script>
+    <title>Frontend Mentor | Interactive pricing component</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution {
+            margin-top: 1rem;
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header text-center">
+            <h2 id="title" class="text-cta-color">Simple, traffic-based pricing</h2>
+            <div class="subtitle-container">
+                <p id="subtitle" class="gray-text" aria-labelledby="title">
+                    Sign-up for our 30-day trial.
+                </p>
+                <p id="subtitle2" class="gray-text" aria-labelledby="title">
+                    &nbsp; No credit card required.
+                </p>
+            </div>
+        </header>
+        <div class="pricing-component text-center gray-text">
+            <div class="amount-slider">
+                <span class="page-views">100k pageviews</span>
+                <input type="range" name="slider" id="slider" min="10" value="16" max="32">
+                <span class="price"><b class="amount text-cta-color">&#36;16.00</b>&#47; month</span>
+            </div>
+            <div class="billing">
+                <p class="monthly">Monthly Billing</p>
+                <label for="toggle">
+            <input type="checkbox" name="toggle" id="toggle" aria-hidden="true">
+            <span class="toggler-ball"></span>
+              </label>
+                <p class="annual" id="annual">Yearly Billing</p>
+                <small class="annual-discount" aria-labelledby="annual">&#8722;25% <span class="discount">discount</span></small>
+            </div>
+            <hr>
+            <div class="benefits">
+                <ul class="benefits-lists">
+                    <li>
+                        Unlimited websites
+                    </li>
+                    <li>
+                        100% data ownerships
+                    </li>
+                    <li>
+                        Email reports
+                    </li>
+                </ul>
+                <button role="button" type="submit" aria-roledescription="button">Start my trial</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Haemoffy</a>.
+    </div>
+</body>
+
+</html>
