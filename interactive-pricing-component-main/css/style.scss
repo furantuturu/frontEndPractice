@@ -1,0 +1,292 @@
+@import 'module/bits';
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+body {
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 0.938rem;
+    font-family: 'Manrope';
+    font-weight: 600;
+    background: $very-pale-blue;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0%;
+        background-image: url(../images//bg-pattern.svg);
+        background-position: left 0%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+
+/* utilities */
+
+.gray-text {
+    color: $grayish-blue;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-cta-color {
+    color: $dark-desaturated-blue;
+}
+
+
+/* main code */
+
+.container {
+    margin-inline: 1.7rem;
+}
+
+.header {
+    background: url(../images/pattern-circles.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-block: 10vh 1.9rem;
+    margin-inline: 1.2rem;
+    padding-block: 3.6rem;
+    overflow-x: unset;
+    #title {
+        font-size: clamp(1.4rem, 2.3vw, 3.7rem);
+        margin-block: -1.1rem .5rem;
+    }
+    #subtitle {
+        line-height: 1.5rem;
+    }
+}
+
+.pricing-component {
+    background: $white;
+    border-radius: .9rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 10px 20px rgba(#222, 0.1);
+    hr {
+        height: 1px;
+        border-width: 0;
+        background-color: $light-pale-grayish-blue;
+    }
+    .amount-slider {
+        @include flexy(column);
+        .page-views {
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        #slider {
+            width: 100%;
+            appearance: none;
+            transition: .4s;
+            margin-block: 2.7rem;
+            cursor: pointer;
+            &:hover,
+            &:focus {
+                opacity: .8;
+            }
+            &::-webkit-slider-thumb {
+                appearance: none;
+                @include custom-thumb;
+            }
+            &::-moz-range-thumb {
+                @include custom-thumb;
+            }
+            &::-webkit-slider-progress {
+                @include custom-progress;
+            }
+            &::-moz-range-progress {
+                @include custom-progress;
+            }
+            &::-webkit-slider-track {
+                @include custom-track;
+            }
+            &::-moz-range-track {
+                @include custom-track;
+            }
+        }
+        .price {
+            @include flexy(row);
+            .amount {
+                font-size: clamp(2.7rem, 2.5vw, 3.2rem);
+                margin-right: .94rem;
+            }
+        }
+    }
+    .billing {
+        @include flexy(row);
+        margin: 1.8rem .8rem;
+        label {
+            position: relative;
+            width: 70px;
+            height: 35px;
+            margin-inline: .96rem;
+            input {
+                display: none;
+            }
+            .toggler-ball {
+                position: absolute;
+                left: -.48rem;
+                min-width: 70px;
+                min-height: 35px;
+                background-color: $light-grayish-blue;
+                border-radius: 99px;
+                transition: .4s;
+                &:hover,
+                &:focus {
+                    background-color: $strong-cyan;
+                }
+                &::before {
+                    position: absolute;
+                    content: '';
+                    top: 4px;
+                    left: 4px;
+                    width: calc(35px - 9px);
+                    height: calc(35px - 9px);
+                    background: $white;
+                    border-radius: 50%;
+                    transition: .4s;
+                    cursor: pointer;
+                }
+            }
+            input:checked+.toggler-ball::before {
+                transform: translateX(36px);
+            }
+        }
+        .annual-discount {
+            background: $light-grayish-red;
+            color: $light-red;
+            border-radius: 99px;
+            margin-right: -1.7rem;
+            padding: .2rem .3rem;
+            .discount {
+                display: none;
+            }
+        }
+    }
+    .benefits {
+        margin-block: 1.8rem;
+         ::marker {
+            content: '';
+        }
+        .benefits-lists {
+            li+li {
+                margin-top: .65rem;
+            }
+            li::before {
+                content: '\f00c';
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                font-size: .9rem;
+                color: $strong-cyan;
+                margin-right: .9rem;
+            }
+        }
+        button {
+            margin-top: 2.1rem;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            padding: 1rem 3.5rem;
+            border-radius: 99px;
+            background-color: $dark-desaturated-blue;
+            box-shadow: 0 3px $dark-desaturated-blue;
+            color: $pale-blue;
+            font-family: 'Manrope';
+            font-weight: 800;
+            letter-spacing: 1px;
+            transition: .4s;
+            &:hover,
+            &:focus {
+                color: $white;
+            }
+        }
+    }
+}
+
+@media (min-width: 445px) {
+    .pricing-component {
+        .billing {
+            label {
+                .toggler-ball {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+@include breakpoint(laptop) {
+    .container {
+        max-width: 768px;
+        margin: auto;
+    }
+    .header {
+        .subtitle-container {
+            @include flexy(row)
+        }
+    }
+    .pricing-component {
+        padding: 3rem;
+        .amount-slider {
+            @include flexy(row);
+            flex-wrap: wrap;
+            .page-views {
+                order: 1;
+                flex-grow: 1;
+                margin: 0;
+                text-align: start;
+            }
+            #slider {
+                order: 3;
+                margin-block: 1.8rem;
+            }
+            .price {
+                order: 2;
+                margin: 0;
+            }
+        }
+        .billing {
+            margin-block: 1.8rem 3rem;
+            .annual-discount {
+                margin-inline: .9rem -2.7rem;
+                .discount {
+                    display: inline-block;
+                }
+            }
+        }
+        .benefits {
+            margin-block: 2.7rem 0;
+            text-align: start;
+            @include flexy(row);
+            .benefits-lists {
+                flex-grow: 1;
+            }
+            button {
+                flex-basis: 35%;
+                margin: 0;
+            }
+        }
+    }
+}
