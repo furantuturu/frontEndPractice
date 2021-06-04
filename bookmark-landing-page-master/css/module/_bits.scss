@@ -1,0 +1,70 @@
+/************************
+        FONTS
+************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
+/************************
+        VARIABLES
+************************/
+
+
+/* PRIMARY */
+
+$soft-blue: hsl(231,
+69%,
+60%);
+$soft-red: hsl(0,
+94%,
+66%);
+
+/* NEUTRAL */
+
+$grayish-blue: hsl(229,
+8%,
+60%);
+$very-dark-blue: hsl(229,
+31%,
+21%);
+
+/************************
+        BREAKPOINT
+************************/
+
+@mixin breakpoint($point) {
+    @if $point==tablet {
+        @media(min-width: 768px) {
+            @content;
+        }
+    }
+    @else if $point==laptop {
+        @media(min-width: 1240px) {
+            @content;
+        }
+    }
+    @else {
+        @error "Invalid point #{$point}";
+    }
+}
+
+
+/************************
+        MIX-IN
+************************/
+
+@mixin furekusu($position) {
+    display: flex;
+    align-items: center;
+    @if $position==center {
+        justify-content: center;
+    }
+    @else if $position==space-between {
+        justify-content: space-between;
+    }
+    @else if $position==around {
+        justify-content: space-around;
+    }
+    @else {
+        @error "Invalid position #{$position}";
+    }
+}
