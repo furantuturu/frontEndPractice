@@ -1,0 +1,116 @@
+@import 'modules/bits';
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: url(../images/bg-stars.svg), $Very-very-dark-blue;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: $White;
+    position: relative;
+    height: 100vh;
+    @include font-setup();
+    @include furekusu2(center);
+    flex-direction: column;
+    justify-content: space-between;
+    &::before {
+        content: '';
+        position: absolute;
+        background: url(../images/pattern-hills.svg);
+        background-repeat: no-repeat;
+        background-position: left 85% bottom 0%;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.furekusu {
+    flex-basis: 80%;
+    @include furekusu2(center);
+    flex-direction: column;
+    .header-title {
+        h1 {
+            letter-spacing: 5px;
+            font-size: 1.5rem;
+            margin-block-end: 5rem;
+        }
+    }
+    .countdown-container {
+        @include furekusu2(center);
+        gap: 1.5rem;
+        p {
+            color: $Grayish-blue;
+            letter-spacing: 4px;
+            font-size: .8rem;
+        }
+        .countdown {
+            .time-card {
+                background: linear-gradient(to bottom, $Very-dark-blue 50%, $Dark-desaturated-blue 50%);
+                border-radius: .5rem;
+                position: relative;
+                margin-block-end: 1.3rem;
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: $Very-very-dark-blue;
+                    width: 5px;
+                    height: 10px;
+                }
+                &::before {
+                    left: 0;
+                    border-top-right-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                }
+                &::after {
+                    right: 0;
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                }
+                .time {
+                    padding: 0 1rem;
+                    font-size: clamp(4rem, 4vw, 5rem);
+                    color: $Soft-red;
+                    letter-spacing: 0px;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    nav {
+        text-align: center;
+        margin-block-end: 1.5rem;
+        a {
+            color: $Grayish-blue;
+            font-size: 2rem;
+            transition: .2s;
+            &:hover,
+            &:focus {
+                color: $Soft-red;
+            }
+        }
+        a:nth-child(2) {
+            margin-inline: 1.6rem;
+        }
+    }
+}

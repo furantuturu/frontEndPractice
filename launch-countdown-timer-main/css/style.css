@@ -1,0 +1,177 @@
+/***********************
+    VARIABLES
+************************/
+/* primary */
+/* neutral */
+/***********************
+    BREAKPOINTS
+************************/
+/***********************
+    FONTS
+************************/
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+/***********************
+    FLEX
+************************/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: url(../images/bg-stars.svg), #191a24;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  height: 100vh;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Red Hat Text', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  background: url(../images/pattern-hills.svg);
+  background-repeat: no-repeat;
+  background-position: left 85% bottom 0%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.furekusu {
+  -ms-flex-preferred-size: 80%;
+      flex-basis: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.furekusu .header-title h1 {
+  letter-spacing: 5px;
+  font-size: 1.5rem;
+  -webkit-margin-after: 5rem;
+          margin-block-end: 5rem;
+}
+
+.furekusu .countdown-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1.5rem;
+}
+
+.furekusu .countdown-container p {
+  color: #8486a9;
+  letter-spacing: 4px;
+  font-size: .8rem;
+}
+
+.furekusu .countdown-container .countdown .time-card {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1e1f29), color-stop(50%, #343650));
+  background: linear-gradient(to bottom, #1e1f29 50%, #343650 50%);
+  border-radius: .5rem;
+  position: relative;
+  -webkit-margin-after: 1.3rem;
+          margin-block-end: 1.3rem;
+}
+
+.furekusu .countdown-container .countdown .time-card::before, .furekusu .countdown-container .countdown .time-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: #191a24;
+  width: 5px;
+  height: 10px;
+}
+
+.furekusu .countdown-container .countdown .time-card::before {
+  left: 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.furekusu .countdown-container .countdown .time-card::after {
+  right: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.furekusu .countdown-container .countdown .time-card .time {
+  padding: 0 1rem;
+  font-size: clamp(4rem, 4vw, 5rem);
+  color: #fb6087;
+  letter-spacing: 0px;
+}
+
+footer nav {
+  text-align: center;
+  -webkit-margin-after: 1.5rem;
+          margin-block-end: 1.5rem;
+}
+
+footer nav a {
+  color: #8486a9;
+  font-size: 2rem;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+footer nav a:hover, footer nav a:focus {
+  color: #fb6087;
+}
+
+footer nav a:nth-child(2) {
+  margin-inline: 1.6rem;
+}
+/*# sourceMappingURL=style.css.map */
