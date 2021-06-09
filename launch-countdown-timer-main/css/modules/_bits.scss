@@ -1,0 +1,53 @@
+/***********************
+    VARIABLES
+************************/
+
+
+/* primary */
+
+$Grayish-blue: hsl(237, 18%, 59%);
+$Soft-red: hsl(345, 95%, 68%);
+
+/* neutral */
+
+$White: hsl(0, 0%, 100%);
+$Dark-desaturated-blue: hsl(236, 21%, 26%);
+$Very-dark-blue: hsl(235, 16%, 14%);
+$Very-very-dark-blue: hsl(234, 17%, 12%);
+
+/***********************
+    BREAKPOINTS
+************************/
+
+@mixin breakpoint ($point) {
+    @if $point==laptop {
+        @media (min-width: 1240px) {
+            @content;
+        }
+    }
+}
+
+
+/***********************
+    FONTS
+************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+/***********************
+    FLEX
+************************/
+
+@mixin furekusu2($pos) {
+    display: flex;
+    align-items: center;
+    @if $pos==center {
+        justify-content: center;
+    }
+}
+
+@mixin font-setup() {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Red Hat Text', sans-serif;
+}
