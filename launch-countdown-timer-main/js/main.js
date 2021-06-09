@@ -2,6 +2,7 @@ let countdown;
 let timeValues = document.querySelectorAll('.countdown .time-card .time');
 
 function countdownTimer() {
+    clearInterval(countdown);
     const now = Date.now();
     const kyuDayInMs = now + (777600 * 1000);
 
