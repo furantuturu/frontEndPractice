@@ -1,0 +1,55 @@
+/***********************
+    VARIABLES
+************************/
+
+
+/* primary */
+
+$Bright-Red: hsl(12, 88%, 59%);
+$Dark-Blue: hsl(228, 39%, 23%);
+
+/* neutral */
+
+$Dark-Grayish-Blue: hsl(227, 12%, 61%);
+$Very-Dark-Blue: hsl(233, 12%, 13%);
+$Very-Pale-Red: hsl(13, 100%, 96%);
+$Very-Light-Gray: hsl(0, 0%, 98%);
+
+/***********************
+    BREAKPOINTS
+************************/
+
+@mixin breakpoint ($point) {
+    @if $point==laptop {
+        @media (min-width: 1240px) {
+            @content;
+        }
+    }
+}
+
+
+/***********************
+    FONTS
+************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;700&display=swap');
+@mixin font-setup() {
+    font-size: 16px;
+    font-family: 'Be Vietnam', sans-serif;
+}
+
+
+/***********************
+    FLEX
+************************/
+
+@mixin furekusu3($pos) {
+    display: flex;
+    align-items: center;
+    @if $pos==center {
+        justify-content: center;
+    }
+    @else if $pos==between {
+        justify-content: space-between;
+    }
+}
