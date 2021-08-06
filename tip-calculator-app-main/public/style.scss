@@ -1,0 +1,183 @@
+@import './modules/tipbits'; // scss extension users
+// @use './modules/bits' as b; if bundler is present
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    @include box-sizing(border-box);
+}
+
+body {
+    background: $lightGrayishCyan;
+    color: $darkGrayishCyan;
+}
+
+body, input, button {
+    font-weight: 700;
+    font-family: $family;
+}
+
+input, button {
+    @include font-size(24px);
+    border-radius: .4rem;
+    outline: none;
+}
+
+input {
+    border: none;
+    padding: .3rem 1.2rem;
+    color: $veryDarkCyan;
+    &::-moz-outer-spin-button,
+    &::-moz-inner-spin-button,
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+    &[type=number] {
+        appearance: textfield;
+        text-align: end;
+    }
+    &:focus {
+        outline: 3px solid $strCyan;
+    }
+}
+
+.logo {
+    @include tipFlex(center);
+    margin-block: 2.5rem;
+}
+
+.container {
+    background: $puti;
+    padding: 1.8rem;
+    border-radius: 1.2rem 1.2rem 0 0;
+    .tip-input-section {
+        .input-field {
+            position: relative;
+            margin-block-end: 2rem;
+            label {
+                display: block;
+            }
+            #bill-input, #people-input {
+                width: 100%;
+                background: $lighterGrayishCyan;
+                margin-block: .5rem;
+            }        
+        }
+        .bill {
+            .dollar {
+                @include icon();
+            }
+        }
+        .select-tip {
+            margin-block-end: 2rem;
+            #tip-list {
+                margin-block: 1rem;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.3rem;
+                .tip_btn {
+                    @include button-default();
+                    padding-block: .5rem;
+                    background: $veryDarkCyan;
+                    color: $puti;
+                    transition: .2s;
+                    &.active {
+                        background: $strCyan;
+                        color: $veryDarkCyan;
+                    }
+                    
+                    &:hover, &:focus {
+                        @include button-hover();
+                    }
+                }
+                #custom-tip {
+                    border: none;
+                    width: 100%;
+                    background: $lighterGrayishCyan;
+                    color: $darkGrayishCyan;
+                    &.active {
+                        outline: 3px solid $strCyan;
+                    }
+                }
+            }
+        }
+        .people {
+            .person {
+                @include icon();
+            }
+        }
+    }
+    .tip-output-section {
+        background: $veryDarkCyan;
+        padding: 1.7rem;
+        border-radius: .8rem;
+        @include tipFlex(space-between);
+        align-items: stretch;
+        flex-direction: column;
+        .output-field {
+            @include tipFlex(space-between);
+            span {
+                color: $puti;
+                small {
+                    color: $darkGrayishCyan;
+                }
+            }
+            .amount {
+                @include font-size(35px);
+                color: $strCyan;
+            }
+            &:first-child {
+                margin-block-end: 1.5rem;
+            }
+        }
+        .reset-btn {
+            @include button-default();
+            width: 100%;
+            text-align: center;
+            background: $strCyan;
+            padding-block: .5rem;
+            margin-block-start: 2.5rem;
+            transition: .2s;
+            &:hover, &:focus {
+                @include button-hover();
+            }
+        }
+    }
+}
+
+@include break-point(desktop) {
+    body {
+        height: 100vh;
+        @include tipFlex(center);
+        flex-direction: column;
+    }
+    .logo {
+        margin-block: 2.5rem 3.5rem;
+    }
+    .container {
+        @include tipFlex(center);
+        gap: 2rem;
+        border-radius: 1.2rem;
+        max-width: 60em;
+        .tip-input-section, .tip-output-section {
+            flex: 1 1 0%;
+        }
+        .tip-input-section {
+            .select-tip {
+                #tip-list {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+        .tip-output-section {
+            height: 100%;
+            .output-field:first-child {
+                margin-block-end: 2.5rem;
+            }
+        }
+    }
+}
