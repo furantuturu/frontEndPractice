@@ -1,0 +1,266 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #c5e4e7;
+  color: #7f9c9f;
+}
+
+body, input, button {
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+}
+
+input, button {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  border-radius: .4rem;
+  outline: none;
+}
+
+input {
+  border: none;
+  padding: .3rem 1.2rem;
+  color: #00494d;
+}
+
+input::-moz-outer-spin-button, input::-moz-inner-spin-button, input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -moz-appearance: none;
+       appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  text-align: end;
+}
+
+input:focus {
+  outline: 3px solid #26c0ab;
+}
+
+.logo {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-block: 2.5rem;
+}
+
+.container {
+  background: white;
+  padding: 1.8rem;
+  border-radius: 1.2rem 1.2rem 0 0;
+}
+
+.container .tip-input-section .input-field {
+  position: relative;
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
+}
+
+.container .tip-input-section .input-field label {
+  display: block;
+}
+
+.container .tip-input-section .input-field #bill-input, .container .tip-input-section .input-field #people-input {
+  width: 100%;
+  background: #f4fafa;
+  margin-block: .5rem;
+}
+
+.container .tip-input-section .bill .dollar {
+  position: absolute;
+  top: calc(1.6rem + 22px);
+  left: 1.2rem;
+}
+
+.container .tip-input-section .select-tip {
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
+}
+
+.container .tip-input-section .select-tip #tip-list {
+  margin-block: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem;
+}
+
+.container .tip-input-section .select-tip #tip-list .tip_btn {
+  border: none;
+  cursor: pointer;
+  padding-block: .5rem;
+  background: #00494d;
+  color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.container .tip-input-section .select-tip #tip-list .tip_btn.active {
+  background: #26c0ab;
+  color: #00494d;
+}
+
+.container .tip-input-section .select-tip #tip-list .tip_btn:hover, .container .tip-input-section .select-tip #tip-list .tip_btn:focus {
+  background: #7be5d7;
+  color: #00494d;
+}
+
+.container .tip-input-section .select-tip #tip-list #custom-tip {
+  border: none;
+  width: 100%;
+  background: #f4fafa;
+  color: #7f9c9f;
+}
+
+.container .tip-input-section .select-tip #tip-list #custom-tip.active {
+  outline: 3px solid #26c0ab;
+}
+
+.container .tip-input-section .people .person {
+  position: absolute;
+  top: calc(1.6rem + 22px);
+  left: 1.2rem;
+}
+
+.container .tip-output-section {
+  background: #00494d;
+  padding: 1.7rem;
+  border-radius: .8rem;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .tip-output-section .output-field {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .tip-output-section .output-field span {
+  color: white;
+}
+
+.container .tip-output-section .output-field span small {
+  color: #7f9c9f;
+}
+
+.container .tip-output-section .output-field .amount {
+  font-size: 35px;
+  font-size: 2.1875rem;
+  line-height: 2.73438rem;
+  color: #26c0ab;
+}
+
+.container .tip-output-section .output-field:first-child {
+  -webkit-margin-after: 1.5rem;
+          margin-block-end: 1.5rem;
+}
+
+.container .tip-output-section .reset-btn {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  background: #26c0ab;
+  padding-block: .5rem;
+  -webkit-margin-before: 2.5rem;
+          margin-block-start: 2.5rem;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.container .tip-output-section .reset-btn:hover, .container .tip-output-section .reset-btn:focus {
+  background: #7be5d7;
+  color: #00494d;
+}
+
+@media only screen and (min-width: 50em) {
+  body {
+    height: 100vh;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .logo {
+    margin-block: 2.5rem 3.5rem;
+  }
+  .container {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 2rem;
+    border-radius: 1.2rem;
+    max-width: 60em;
+  }
+  .container .tip-input-section, .container .tip-output-section {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 0%;
+            flex: 1 1 0%;
+  }
+  .container .tip-input-section .select-tip #tip-list {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+  .container .tip-output-section {
+    height: 100%;
+  }
+  .container .tip-output-section .output-field:first-child {
+    -webkit-margin-after: 2.5rem;
+            margin-block-end: 2.5rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
