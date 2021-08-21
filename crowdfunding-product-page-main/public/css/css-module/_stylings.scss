@@ -1,0 +1,97 @@
+//SPACING
+$space: 1.4rem;
+
+// PRIMARY
+$moderateCyan: hsl(176, 50%, 47%);
+$darkCyan: hsl(176, 72%, 28%);
+
+//NEUTRAL
+$black: hsl(0, 0%, 0%);
+$darkGray: hsl(0, 0%, 48%);
+
+// FONT
+$family: 'Commissioner', sans-serif;
+
+// MIXINS
+
+@mixin section {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  margin-bottom: $space;
+}
+
+@mixin pledge-card {
+  padding: $space;
+  margin-block-end: $space;
+  border-radius: 0.75rem;
+  border: 1px solid rgba($darkGray, 0.7);
+}
+
+@mixin remaining-item {
+  @include Flex(center);
+  justify-content: start;
+  margin-block-end: $space;
+  small {
+    color: $darkGray;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-inline-start: 0.5rem;
+  }
+}
+
+@mixin pledge-amt {
+  color: $moderateCyan;
+  font-weight: 500;
+}
+
+@mixin button-stylings($bgColor, $color, $pb, $pi) {
+  background-color: $bgColor;
+  border-radius: 999px;
+  padding-block: $pb;
+  padding-inline: $pi;
+  font-weight: 700;
+  color: $color;
+}
+
+@mixin font-size($size) {
+  font-size: ($size / 16px) * 1rem;
+  line-height: (($size / 16px) * 1rem) * 1.25;
+}
+
+@mixin box-shadow($h: 5px, $v: 5px, $b: 0px, $s: 0px, $c: #111) {
+  -webkit-box-shadow: $h $v $b $s $c;
+  -moz-box-shadow: $h $v $b $s $c;
+  box-shadow: $h $v $b $s $c;
+}
+
+@mixin opacity($alpha) {
+  opacity: $alpha;
+  filter: alpha(opacity=($alpha * 100));
+}
+
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin Flex($pos) {
+  display: -moz-box; // old
+  display: -ms-flexbox; // ie
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  @if $pos == space-between {
+    justify-content: space-between;
+  } @else {
+    justify-content: center;
+  }
+}
+
+@mixin break-point($point) {
+  @if $point == desktop {
+    @media only screen and (min-width: 50em) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,326 @@
+@import './css-module/_stylings';
+
+*,
+*::before,
+*::after {
+  text-decoration: none;
+  list-style: none;
+}
+
+button:not(.bookmark) {
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+  @include button-stylings($moderateCyan, #fff, 1rem, 2.5rem);
+  &:hover,
+  &:focus {
+    background-color: $darkCyan;
+  }
+}
+#menu_bar,
+#menu_close {
+  background: transparent;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+}
+
+p {
+  color: $darkGray;
+  line-height: 1.5rem;
+  margin-block-end: $space;
+}
+
+label {
+  display: inline-block;
+}
+
+body {
+  font-family: $family;
+  @include font-size(16px);
+  background-color: #eee;
+}
+
+header {
+  background-image: url(../images/image-hero-mobile.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 300px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to bottom, $black, transparent);
+    @include opacity(0.4);
+  }
+  nav {
+    position: relative;
+    margin-inline: 1.6rem;
+    .menu-tab {
+      @include Flex(space-between);
+    }
+    #mobile_nav_links {
+      display: none;
+      width: 100%;
+      position: fixed;
+      left: 0;
+      z-index: 1;
+      &::before {
+        position: absolute;
+        content: '';
+        inset: -70px 0 0;
+        background-image: linear-gradient(to bottom, $black, transparent);
+        @include opacity(0.8);
+        height: 90vh;
+      }
+      .mobile-tab {
+        margin-inline: $space;
+        transform: translateY(0px);
+        .menu-close-tab {
+          margin-block-end: ($space + 1);
+          img {
+            margin: 0;
+          }
+        }
+        .mobile-link-panel {
+          background-color: #fff;
+          border-radius: 0.75rem;
+          li {
+            padding: $space;
+            a {
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+    #desktop_nav_links {
+      display: none;
+    }
+  }
+}
+
+.wrapper {
+  margin-top: -4rem;
+  margin-inline: 1.6rem;
+}
+
+.out_of_stock {
+  pointer-events: none;
+  @include opacity(0.4);
+}
+
+.section {
+  @include section();
+}
+
+main {
+  .introductory-content-section {
+    position: relative;
+    padding: ($space * 2) $space $space;
+    .mastercraft-logo {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .title {
+      h1 {
+        @include font-size(22px);
+        margin: 0 $space $space;
+      }
+    }
+    .cta {
+      @include Flex(space-between);
+      .bookmark {
+        transition: 0.2s;
+        @include Flex(center);
+        img {
+          display: inline-block;
+        }
+        span {
+          display: none;
+          @include button-stylings(#ddd, $darkGray, 1rem, 2rem);
+          padding-inline: 3rem 1.5rem;
+        }
+        &:hover,
+        &:focus {
+          @include opacity(0.9);
+        }
+      }
+    }
+  }
+  .backing-progress {
+    .progress_section_container {
+      .progress_section {
+        padding-block: $space;
+        position: relative;
+        &::after:not(.days-left_section) {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          height: 2px;
+          width: 20%;
+          background-color: $darkGray;
+          @include opacity(0.2);
+        }
+        .value {
+          @include font-size(32px);
+        }
+        .total {
+          color: $darkGray;
+        }
+      }
+    }
+    //deteminate progress bar
+    progress[value] {
+      appearance: none;
+      width: 80%;
+      margin-block-end: $space;
+    }
+  }
+  .about_section {
+    padding: ($space * 1.5) 1.2rem;
+    h4 {
+      @include font-size(19px);
+      margin-block-end: $space;
+    }
+    .pledge_selection {
+      .pledge {
+        @include pledge-card();
+        .item {
+          margin-block-end: $space;
+          .item_name {
+            @include font-size(17px);
+          }
+          .pledge_amt {
+            @include pledge-amt();
+          }
+        }
+        .reward_selection {
+          .remaining_item {
+            @include font-size(32px);
+            @include remaining-item();
+          }
+        }
+      }
+      .pledge.out_of_stock {
+        margin-block-end: 0;
+        .reward_selection {
+          button {
+            cursor: default;
+            background: $darkGray;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include break-point(desktop) {
+  header {
+    background-image: url(../images/image-hero-desktop.jpg);
+    nav {
+      max-width: 1050px;
+      margin-inline: auto;
+      @include Flex(space-between);
+      .menu-open-tab {
+        #menu_bar {
+          display: none;
+        }
+      }
+      #desktop_nav_links {
+        display: block;
+        .desktop-link-panel {
+          @include Flex(space-between);
+          li:not(li:first-child) {
+            margin-inline-start: ($space + 0.8);
+          }
+          li {
+            a {
+              color: #fff;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+  .wrapper {
+    max-width: 727px;
+    margin-inline: auto;
+  }
+  main {
+    .section {
+      padding-inline: ($space * 1.9);
+    }
+    .introductory-content-section {
+      padding-block-start: ($space * 2.5);
+      .cta {
+        .bookmark {
+          img {
+            transform: translateX(2.5rem);
+          }
+          span {
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .backing-progress {
+      padding-block: $space;
+      .progress_section_container {
+        margin-block-end: $space;
+        @include Flex(center);
+        .progress_section {
+          text-align: start;
+          flex: 1 1 0%;
+          &::after:not(.days-left_section) {
+            left: 100%;
+            transform: unset;
+            height: 100%;
+            width: 2px;
+            background-color: $darkGray;
+            @include opacity(0.2);
+          }
+        }
+      }
+      progress[value] {
+        width: 100%;
+        height: 13px;
+        border-radius: 999px;
+        &::-webkit-progress-bar,
+        &::-moz-progress-bar {
+          border-radius: 999px;
+          background-color: $moderateCyan;
+        }
+      }
+    }
+    .about_section {
+      padding-block-start: ($space * 1.7);
+      .pledge_selection {
+        .pledge {
+          padding: ($space * 1.5) $space;
+          .item {
+            @include Flex(space-between);
+          }
+          .reward_selection {
+            @include Flex(space-between);
+            .remaining_item {
+              margin-block-end: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
