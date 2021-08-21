@@ -1,0 +1,208 @@
+@import '../css-module/_stylings';
+
+//MODAL STYLING ==============================================
+.modal {
+  display: none;
+  position: fixed;
+  overflow-y: scroll;
+  background-color: rgba($black, 0.6);
+  inset: 0;
+  #modal_body {
+    margin-block: 6rem;
+    padding: ($space * 1.15);
+    animation: popout 0.2s linear forwards;
+    .modal_heading {
+      @include Flex(space-between);
+      margin-block-end: $space;
+      h2 {
+        @include font-size(20px);
+      }
+      #modal_close {
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+    .modal_pledge_selection {
+      .modal_pledge {
+        @include pledge-card();
+        .pledge_content {
+          div:first-child {
+            @include Flex(center);
+            justify-content: start;
+            margin-block-end: $space;
+            input[name='pledge'] {
+              width: 1.6rem;
+              height: 1.6rem;
+            }
+            .item_detail {
+              margin-inline-start: $space;
+              @include Flex(center);
+              flex-direction: column;
+              align-items: start;
+              .modal_item_name {
+                font-weight: 700;
+              }
+              .modal_pledge_amt {
+                @include pledge-amt();
+              }
+            }
+          }
+          .modal_remaining_item {
+            @include remaining-item();
+          }
+        }
+      }
+    }
+  }
+}
+
+@include break-point(desktop) {
+  .modal {
+    #modal_body {
+      margin-block: 8rem;
+      padding: ($space * 1.5);
+      .modal_pledge_selection {
+        .modal_pledge {
+          padding: ($space * 1.2);
+          .pledge_content {
+            display: grid;
+            grid-template-columns: ($space * 2) 2fr repeat(2, 1fr);
+            div:first-child {
+              grid-column: 1 / 3;
+              .item_detail {
+                flex-direction: row;
+                .modal_pledge_amt {
+                  margin-inline-start: ($space * 0.75);
+                }
+              }
+            }
+            p {
+              grid-column: 2 / 5;
+              grid-row: 2 / 3;
+            }
+            .modal_remaining_item {
+              grid-column: 4 / 5;
+              justify-self: flex-end;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//SELECTED STATE
+
+.enter_pledge {
+  grid-column: 1 / 5;
+  grid-row: 4 / 5;
+  border-top: 3px solid rgba($darkGray, 0.2);
+  padding-block-start: $space;
+  flex-direction: column;
+  display: none;
+  label {
+    color: $darkGray;
+    margin-block-end: $space;
+  }
+  .pledge_input_form {
+    @include Flex(center);
+    gap: $space;
+    input,
+    button {
+      padding-inline: $space;
+    }
+    .input_pledge {
+      position: relative;
+      &::before {
+        content: '$';
+        position: absolute;
+        font-weight: 700;
+        color: $darkGray;
+        left: 2.2rem;
+        top: 18px;
+      }
+      input[type='number'] {
+        width: 125px;
+        border-radius: 999px;
+        padding: 1rem;
+        border: 3px solid rgba($darkGray, 0.2);
+        text-align: center;
+        appearance: textfield;
+        font-weight: 700;
+        transition: 0.2s;
+        outline: none;
+        padding-inline: 3rem;
+        // google
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          appearance: none;
+          margin: 0;
+        }
+        &:hover,
+        &:focus {
+          border: 3px solid $moderateCyan;
+        }
+      }
+    }
+  }
+}
+
+@include break-point(desktop) {
+  .enter_pledge {
+    flex-direction: row;
+    label {
+      margin-block-end: 0;
+    }
+  }
+}
+
+.modal_pledge.checked {
+  border: 3px solid $moderateCyan !important;
+  .enter_pledge {
+    @include Flex(space-between);
+  }
+}
+
+//MODAL COMPLETE
+.success_modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background-color: rgba($black, 0.6);
+  height: 100vh;
+  #success_modal_body {
+    padding: ($space * 1.6);
+    animation: popout 0.2s linear forwards;
+    & > *:not(button) {
+      margin-block-end: ($space * 1.3);
+    }
+    img {
+      margin-inline: auto;
+    }
+    h2 {
+      @include font-size(23px);
+    }
+    p {
+      line-height: 1.8rem;
+    }
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .success_modal {
+    #success_modal_body {
+      max-width: 550px;
+    }
+  }
+}
+
+@keyframes popout {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
