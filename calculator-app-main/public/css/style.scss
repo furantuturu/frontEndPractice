@@ -1,0 +1,95 @@
+@import './module/necessities';
+
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: $family;
+  transition: 0.2s;
+}
+body.theme-one {
+  @include theme1();
+}
+body.theme-two {
+  @include theme2();
+}
+body.theme-three {
+  @include theme3();
+}
+button,
+h2,
+.current-operant {
+  font-size: 1.8rem;
+}
+
+[data-reset],
+[data-delete] {
+  font-size: 1rem;
+}
+
+.calc-output,
+.calc-keys {
+  padding: $spacing;
+  border-radius: 0.7rem;
+}
+
+.calc-container {
+  margin-inline: $spacing;
+  max-width: 527px;
+  .calc-body {
+    .calc-heading {
+      @include flexbox(space-between);
+      .themes {
+        & > small {
+          margin-inline-end: 1rem;
+          margin-block-end: 1rem;
+          vertical-align: bottom;
+        }
+        span:not(.slider-ball) {
+          display: inline-block;
+
+          div:first-child {
+            padding-inline: 0.8rem;
+            small:nth-child(2) {
+              margin-inline: 1rem;
+            }
+          }
+          .toggle-slider {
+            width: 100%;
+            height: $spacing * 1.25;
+            position: relative;
+            .slider-ball {
+              position: absolute;
+              cursor: pointer;
+              width: 1.25rem;
+              height: 1.25rem;
+              top: 0.3rem;
+              left: 0.3rem;
+              transition: 0.2s;
+            }
+          }
+        }
+      }
+    }
+    .calc-output {
+      margin-block: $spacing;
+      .current-operant {
+        text-align: end;
+        word-wrap: break-word;
+        word-break: break-all;
+      }
+    }
+    .calc-keys {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(50px, 100px));
+      gap: 0.9rem;
+      button {
+        border-radius: 0.4rem;
+        padding-block: 0.3rem;
+      }
+      .span-two {
+        grid-column: span 2;
+      }
+    }
+  }
+}

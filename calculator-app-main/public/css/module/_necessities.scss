@@ -1,0 +1,205 @@
+// THEME 1
+// BG
+$vryDarkDesaBluMain: hsl(222, 26%, 31%);
+$vryDarkDesaBluTogg: hsl(223, 31%, 20%);
+$vryDarkDesaBluScreen: hsl(224, 36%, 15%);
+// KEYS
+$desaDarkBluKeyBg: hsl(225, 21%, 49%);
+$desaDarkBluShado: hsl(224, 28%, 35%);
+$redToggle: hsl(6, 63%, 50%);
+$darkRedShado: hsl(6, 70%, 34%);
+$lightGrayishOrangeKeyBg: hsl(30, 25%, 89%);
+$grayishOrangeShado: hsl(28, 16%, 65%);
+// TEXT
+$veryDarkGrayishBlue: hsl(221, 14%, 31%);
+$white: hsl(0, 0, 100%); // available on every theme
+
+// THEME 2
+// BG
+$lightGray: hsl(0, 0%, 90%);
+$grayishRedToggKeyBg: hsl(0, 5%, 81%);
+$veryLightGrayScreen: hsl(0, 0%, 93%);
+// KEYS
+$darkModCyanKeyBg: hsl(185, 42%, 37%);
+$veryDarkCyanShado: hsl(185, 58%, 25%);
+$orangeToggBg: hsl(25, 98%, 40%);
+$darkOrangeShado: hsl(25, 99%, 27%);
+$lightGrayishYellowKeyBg: hsl(45, 7%, 89%);
+$darkGrayishOrangeShado: hsl(35, 11%, 61%);
+// TEXT
+$veryDarkGrayishYellow: hsl(60, 10%, 19%);
+
+// THEME 3
+// BG
+$veryDarkVioletMain: hsl(268, 75%, 9%);
+$veryDarkViolet: hsl(268, 71%, 12%);
+// KEYS
+$darkVioletKeyBg: hsl(281, 89%, 26%);
+$vividMagentaShado: hsl(285, 91%, 52%);
+$pureCyanToggKeyBg: hsl(176, 100%, 44%);
+$softCyanShado: hsl(177, 92%, 70%);
+$veryDarkVioletKeyBg: hsl(268, 47%, 21%);
+$darkMagentaShado: hsl(290, 70%, 36%);
+// TEXT
+$lightYellow: hsl(52, 100%, 62%);
+$veryDarkBlue: hsl(198, 20%, 13%);
+// FONT
+$family: 'Spartan', sans-serif;
+
+//SPACE {
+$spacing: 1.5rem;
+
+//MIXIN
+@mixin flexbox($pos: center) {
+  display: flex;
+  align-items: center;
+  @if $pos==space-between {
+    justify-content: space-between;
+  } @else {
+    justify-content: $pos;
+  }
+}
+
+@mixin theme1 {
+  background-color: $vryDarkDesaBluMain;
+  color: $white;
+  button {
+    color: $veryDarkGrayishBlue;
+  }
+  .calc-container {
+    .calc-body {
+      .calc-heading {
+        .themes {
+          & > span {
+            .toggle-slider {
+              .slider-ball {
+                background-color: $redToggle;
+              }
+              background-color: $vryDarkDesaBluTogg;
+            }
+          }
+        }
+      }
+      .calc-output {
+        background-color: $vryDarkDesaBluScreen;
+      }
+      .calc-keys {
+        background-color: $vryDarkDesaBluTogg;
+        button {
+          background-color: $lightGrayishOrangeKeyBg;
+          box-shadow: 0px 4px 0 0 $grayishOrangeShado;
+        }
+        [data-reset],
+        [data-delete],
+        [data-equals] {
+          color: $white;
+        }
+        [data-reset],
+        [data-delete] {
+          background-color: $desaDarkBluKeyBg;
+          box-shadow: 0px 4px 0 0 $desaDarkBluShado;
+        }
+        [data-equals] {
+          background-color: $redToggle;
+          box-shadow: 0px 4px 0 0 $darkRedShado;
+        }
+      }
+    }
+  }
+}
+
+@mixin theme2 {
+  background-color: $lightGray;
+  color: $veryDarkGrayishYellow;
+  button {
+    color: $veryDarkGrayishYellow;
+  }
+  .calc-container {
+    .calc-body {
+      .calc-heading {
+        .themes {
+          & > span {
+            .toggle-slider {
+              background-color: $grayishRedToggKeyBg;
+              .slider-ball {
+                background-color: $orangeToggBg;
+              }
+            }
+          }
+        }
+      }
+      .calc-output {
+        background-color: $veryLightGrayScreen;
+      }
+      .calc-keys {
+        background-color: $grayishRedToggKeyBg;
+        button {
+          background-color: $lightGrayishYellowKeyBg;
+          box-shadow: 0px 4px 0 0 $darkGrayishOrangeShado;
+        }
+        [data-reset],
+        [data-delete],
+        [data-equals] {
+          color: $white;
+        }
+        [data-reset],
+        [data-delete] {
+          background-color: $darkModCyanKeyBg;
+          box-shadow: 0px 4px 0 0 $veryDarkCyanShado;
+        }
+        [data-equals] {
+          background-color: $orangeToggBg;
+          box-shadow: 0px 4px 0 0 $darkOrangeShado;
+        }
+      }
+    }
+  }
+}
+
+@mixin theme3 {
+  background-color: $veryDarkVioletMain;
+  color: $lightYellow;
+  button {
+    color: $lightYellow;
+  }
+  .calc-container {
+    .calc-body {
+      .calc-heading {
+        .themes {
+          & > span {
+            .toggle-slider {
+              background-color: $veryDarkViolet;
+              .slider-ball {
+                background-color: $pureCyanToggKeyBg;
+              }
+            }
+          }
+        }
+      }
+      .calc-output {
+        background-color: $veryDarkViolet;
+      }
+      .calc-keys {
+        background-color: $veryDarkViolet;
+        button {
+          background-color: $veryDarkVioletKeyBg;
+          box-shadow: 0px 4px 0 0 $darkMagentaShado;
+        }
+        [data-reset],
+        [data-delete] {
+          color: $white;
+        }
+        [data-reset],
+        [data-delete] {
+          background-color: $darkVioletKeyBg;
+          box-shadow: 0px 4px 0 0 $vividMagentaShado;
+        }
+        [data-equals] {
+          color: $veryDarkBlue;
+          background-color: $pureCyanToggKeyBg;
+          box-shadow: 0px 4px 0 0 $softCyanShado;
+        }
+      }
+    }
+  }
+}
