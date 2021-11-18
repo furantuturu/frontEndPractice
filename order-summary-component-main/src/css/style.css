@@ -1,0 +1,143 @@
+/* COLOR */
+/* primary */
+/* neutral */
+/* BREAKPOINT */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  font-family: 'Red Hat Display', sans-serif;
+  background-color: #e0e8ff;
+  background-image: url("../../images/pattern-background-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  color: #1f2f56;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+  color: #1f2f56;
+}
+
+p {
+  color: #7280a7;
+  line-height: 1.8rem;
+  font-size: clamp(1rem, 5vw, 1.1rem);
+}
+
+button {
+  font-family: 'Red Hat Display', sans-serif;
+  width: 100%;
+  padding-block: 1.1rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  background: none;
+  border-radius: 0.9rem;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#order-component {
+  max-width: 28.45rem;
+  margin: auto 1.4rem;
+  text-align: center;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 6px 20px 10px rgba(114, 128, 167, 0.35);
+          box-shadow: 0px 6px 20px 10px rgba(114, 128, 167, 0.35);
+  border-radius: 1.1rem;
+}
+
+#order-component header img {
+  border-radius: 1.1rem 1.1rem 0 0;
+  width: 100%;
+}
+
+#order-component section {
+  padding: 2.05rem 2.4rem;
+}
+
+#order-component section .introduction p {
+  margin-block: 1.4rem;
+}
+
+#order-component section .annual-plan {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #f5f7ff;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+
+#order-component section .annual-plan span {
+  cursor: pointer;
+  margin-left: 2rem;
+  font-weight: 700;
+  text-decoration: underline;
+  color: #3829e0;
+  display: inline-block;
+  line-height: 0.85;
+  text-shadow: 1px 1px white, 1px -1px white, -1px 1px white, -1px -1px white;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#order-component section .annual-plan span:hover, #order-component section .annual-plan span:focus {
+  opacity: 0.8;
+}
+
+#order-component section .call-to-action button:first-child {
+  background: #3829e0;
+  color: #f5f7ff;
+  -webkit-box-shadow: 0 8px 10px rgba(114, 128, 167, 0.4);
+          box-shadow: 0 8px 10px rgba(114, 128, 167, 0.4);
+}
+
+#order-component section .call-to-action button:first-child:hover, #order-component section .call-to-action button:first-child:focus {
+  opacity: 0.8;
+}
+
+#order-component section .call-to-action button:last-child {
+  background: transparent;
+  color: #7280a7;
+}
+
+#order-component section .call-to-action button:last-child:hover, #order-component section .call-to-action button:last-child:focus {
+  color: #1f2f56;
+}
+
+@media (min-width: 77.5em) {
+  body {
+    background-image: url("../../images/pattern-background-desktop.svg");
+  }
+}
+/*# sourceMappingURL=style.css.map */
