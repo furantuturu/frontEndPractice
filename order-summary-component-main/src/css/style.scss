@@ -1,0 +1,126 @@
+@import './necessities';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: 'Red Hat Display', sans-serif;
+  background-color: $pale-blue;
+  background-image: url('../../images/pattern-background-mobile.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+h1 {
+  font-weight: 900;
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  color: $dark-blue;
+}
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+  color: $dark-blue;
+}
+
+p {
+  color: $desaturated-blue;
+  line-height: 1.8rem;
+  font-size: clamp(1rem, 5vw, 1.1rem);
+}
+
+button {
+  font-family: 'Red Hat Display', sans-serif;
+  width: 100%;
+  padding-block: 1.1rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  background: none;
+  border-radius: 0.9rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#order-component {
+  max-width: 28.45rem;
+  margin: auto 1.4rem;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 6px 20px 10px rgba($desaturated-blue, 0.35);
+  border-radius: 1.1rem;
+  header {
+    img {
+      border-radius: 1.1rem 1.1rem 0 0;
+      width: 100%;
+    }
+  }
+  section {
+    padding: 2.05rem 2.4rem;
+    .introduction {
+      p {
+        margin-block: 1.4rem;
+      }
+    }
+    .annual-plan {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $very-pale-blue;
+      padding: 1.2rem;
+      border-radius: 0.8rem;
+      margin-bottom: 1.8rem;
+      span {
+        cursor: pointer;
+        margin-left: 2rem;
+        font-weight: 700;
+        text-decoration: underline;
+        color: $bright-blue;
+        display: inline-block;
+        line-height: 0.85;
+        text-shadow: 1px 1px white, 1px -1px white, -1px 1px white,
+          -1px -1px white;
+        transition: 0.2s;
+        &:hover,
+        &:focus {
+          opacity: 0.8;
+        }
+      }
+    }
+    .call-to-action {
+      button:first-child {
+        background: $bright-blue;
+        color: $very-pale-blue;
+        box-shadow: 0 8px 10px rgba($desaturated-blue, 0.4);
+        &:hover,
+        &:focus {
+          opacity: 0.8;
+        }
+      }
+      button:last-child {
+        background: transparent;
+        color: $desaturated-blue;
+        &:hover,
+        &:focus {
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint() {
+  body {
+    background-image: url('../../images/pattern-background-desktop.svg');
+  }
+}
