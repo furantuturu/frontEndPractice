@@ -1,0 +1,32 @@
+/* PRIMARY */
+$soft-blue: hsl(215, 51%, 70%);
+$cyan: hsl(178, 100%, 50%);
+
+/* NEUTRAL */
+$very-dark-blue-main: hsl(217, 54%, 11%);
+$very-dark-blue-card: hsl(216, 50%, 16%);
+$very-dark-blue-line: hsl(215, 32%, 27%);
+$white: hsl(0, 0%, 100%);
+
+/* BREAKPOINT */
+
+@mixin breakpoint($point: laptop) {
+  @if $point==laptop {
+    @media (min-width: 77.5em) {
+      @content;
+    }
+  }
+}
+
+/* MIXINS */
+@mixin flex($jus: start) {
+  display: flex;
+  align-items: center;
+  @if $jus==space-between {
+    justify-content: space-between;
+  } @else if $jus==center {
+    justify-content: center;
+  } @else {
+    justify-content: start;
+  }
+}
