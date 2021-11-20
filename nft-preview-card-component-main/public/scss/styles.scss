@@ -1,0 +1,87 @@
+@import 'necessities';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-size: 18px;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  background-color: $very-dark-blue-main;
+  @include flex(center);
+}
+
+h1 {
+  font-size: clamp(1.3rem, 5vw, 1.6rem);
+  font-weight: 600;
+}
+
+p,
+span {
+  color: $soft-blue;
+  line-height: 1.8rem;
+}
+.clr-white {
+  color: $white;
+}
+.preview-card-component {
+  background-color: $very-dark-blue-card;
+  padding: 1.3rem;
+  border-radius: 0.8rem;
+  max-width: 20.313rem;
+  margin-inline: 1.3rem;
+  .equilibrium-hero {
+    margin-bottom: 1.1rem;
+    img {
+      border-radius: 0.8rem;
+      width: 100%;
+    }
+  }
+  .equilibrium-about {
+    p {
+      margin-block: 1.1rem;
+      font-weight: 300;
+    }
+  }
+  .eth-section {
+    @include flex(space-between);
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid $very-dark-blue-line;
+    .eth-value,
+    .duration {
+      img {
+        margin-right: 0.1rem;
+      }
+      span {
+        position: relative;
+        bottom: 0.188rem;
+      }
+    }
+    .eth-value {
+      span {
+        color: $cyan;
+      }
+    }
+  }
+  .author {
+    padding-top: 1.1rem;
+    @include flex(start);
+    img {
+      width: 40px;
+      height: 40px;
+      border: 2px solid $white;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+  }
+}
