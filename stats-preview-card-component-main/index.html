@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <title>Frontend Mentor | Stats preview card component</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <canvas id="bg"></canvas>
+
+    <script type="module">
+      import * as THREE from 'https://cdn.skypack.dev/three@0.136.0';
+      import { OrbitControls } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js';
+      import { FontLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/FontLoader.js';
+      import { TextGeometry } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/geometries/TextGeometry.js';
+
+      // setups ==================================================================================================================================
+      const scene = new THREE.Scene();
+
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000,
+      );
+      camera.position.z = 30;
+
+      const renderer = new THREE.WebGL1Renderer({
+        canvas: document.querySelector('#bg'),
+      });
+
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      const ambientLight = new THREE.AmbientLight(0xeeeeee);
+      const orbitControls = new OrbitControls(camera, renderer.domElement);
+      const bgColor = new THREE.Color(0x090b1a);
+
+      scene.background = bgColor;
+      scene.add(ambientLight, orbitControls);
+
+      // materials ==================================================================================================================================
+      const boxGeomtery1 = new THREE.BoxGeometry(42, 35.81, 1.856);
+      const boxMaterial1 = new THREE.MeshStandardMaterial({ color: 0x1b1938 });
+      const box1 = new THREE.Mesh(boxGeomtery1, boxMaterial1);
+      box1.position.x = -21;
+      box1.position.z = -8;
+
+      scene.add(box1);
+      1;
+
+      const imgHeaderTexture = new THREE.TextureLoader().load(
+        '../images/image-header-desktop.jpg',
+      );
+      const boxGeometry2 = new THREE.BoxGeometry().copy(boxGeomtery1);
+      const boxMaterial2 = [
+        new THREE.MeshStandardMaterial({ color: 0xaa5cdb }),
+        new THREE.MeshStandardMaterial({ color: 0xaa5cdb }),
+        new THREE.MeshStandardMaterial({ color: 0xaa5cdb }),
+        new THREE.MeshStandardMaterial({ color: 0xaa5cdb }),
+        new THREE.MeshStandardMaterial({
+          color: 0xaa5cdb,
+          map: imgHeaderTexture,
+        }),
+        new THREE.MeshStandardMaterial({ color: 0xaa5cdb }),
+      ];
+      boxMaterial2[4].map.minFilter = THREE.LinearFilter;
+
+      const box2 = new THREE.Mesh(boxGeometry2, boxMaterial2);
+      box2.position.x = Math.abs(box1.position.x);
+      box2.position.z = box1.position.z;
+      scene.add(box2);
+
+      // text geomteries ==============================================================================================================================
+      const fontLoader = new FontLoader();
+      const interRegularFont = '../fonts/Inter_Regular.typeface.json';
+      const lexDecaRegularFont = '../fonts/Lexend Deca_Regular.typeface.json';
+      const defaultGlobalTextGeometryParams = {
+        height: 1,
+        curveSegments: 20,
+      };
+
+      fontLoader.load(interRegularFont, (font) => {
+        const defaultTextGeometryParams = {
+          font: font,
+          size: 2,
+        };
+        const geometry = new TextGeometry(
+          `Get               that help \nyour business grow.`,
+          {
+            ...defaultTextGeometryParams,
+            ...defaultGlobalTextGeometryParams,
+          },
+        );
+        const geometry2 = new TextGeometry(`insights`, {
+          ...defaultTextGeometryParams,
+          ...defaultGlobalTextGeometryParams,
+        });
+        const geometry3 = new TextGeometry(`10k+         314          12M+`, {
+          ...defaultTextGeometryParams,
+          size: 1.7,
+          ...defaultGlobalTextGeometryParams,
+        });
+        const material = new THREE.MeshPhongMaterial({ color: 0xffffff });
+        const material2 = new THREE.MeshPhongMaterial({ color: 0xaa5cdb });
+
+        const textMesh = new THREE.Mesh(geometry, material);
+        const textMesh2 = new THREE.Mesh(geometry2, material2);
+        const textMesh3 = new THREE.Mesh(geometry3, material);
+
+        textMesh.position.set(-37, 10.81, box1.position.z + 0.1);
+        textMesh2.position.set(-31.5, 10.81, box1.position.z + 0.1);
+        textMesh3.position.set(-37, -10.81, box1.position.z + 0.1);
+
+        scene.add(textMesh, textMesh2, textMesh3);
+      });
+
+      fontLoader.load(lexDecaRegularFont, (font) => {
+        const defaultTextGeometryParams = {
+          font: font,
+          size: 1,
+        };
+        const geometry = new TextGeometry(
+          `Discover the benifits of data analytics and make \nbetter decisions regarding revenue, customer \nexperience, and overall efficienecy.`,
+          {
+            ...defaultTextGeometryParams,
+            ...defaultGlobalTextGeometryParams,
+          },
+        );
+        const geometry2 = new TextGeometry(
+          `COMPANIES       TEMPLATES       QUERIES`,
+          {
+            ...defaultTextGeometryParams,
+            ...defaultGlobalTextGeometryParams,
+          },
+        );
+        const material = new THREE.MeshPhongMaterial({ color: 0xbbbbbb });
+
+        const textMesh = new THREE.Mesh(geometry, material);
+        const textMesh2 = new THREE.Mesh(geometry2, material);
+
+        textMesh.position.set(-37, 0, box1.position.z + 0.1);
+        textMesh2.position.set(-37, -12.81, box1.position.z + 0.1);
+
+        scene.add(textMesh, textMesh2);
+      });
+
+      // animate ==================================================================================================================================
+      function animate() {
+        requestAnimationFrame(animate);
+
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
+  </body>
+</html>
