@@ -1,0 +1,13 @@
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}

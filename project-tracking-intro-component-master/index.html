@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Project tracking intro component</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <canvas id="bg"></canvas>
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer>
+    <script type="module">
+      import * as THREE from 'https://cdn.skypack.dev/three@0.136.0';
+      import { OrbitControls } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js';
+      import { FontLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/FontLoader.js';
+      import { TextGeometry } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/geometries/TextGeometry.js';
+
+      // SETUP ============================================================================================================================
+      let scene = new THREE.Scene();
+
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000,
+      );
+      camera.position.z = 350;
+
+      const renderer = new THREE.WebGL1Renderer({
+        canvas: document.querySelector('#bg'),
+      });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      console.log(renderer.capabilities.isWebGL2);
+      // HELPERS, LIGHTS, CONTROLS, BG =============================================================================================================
+      const orbitControls = new OrbitControls(camera, renderer.domElement);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+      const colorbg = new THREE.Color(0xeef3f6);
+      scene.background = colorbg;
+
+      scene.add(ambientLight, orbitControls);
+      // GEOMETRIES AND MATERIALS ===============================================================================================================
+      const baseXpos = 395;
+      const baseYpos = 30;
+
+      function roundedRectangle() {
+        // rounded rectangle mesh copied in https://codepen.io/nik-lever/pen/MWWopLW
+        // modified for my needs
+
+        let shape = new THREE.Shape();
+        let w, h, x, y, rad;
+        const pos = new THREE.Vector3();
+
+        x = y = 0;
+        w = 750;
+        h = 375;
+        rad = 40;
+        shape.moveTo(x, y + rad);
+        shape.lineTo(x, y + h - rad);
+        shape.quadraticCurveTo(x, y + h, x + rad, y + h);
+        shape.lineTo(x + w - rad, y + h);
+        shape.quadraticCurveTo(x + w, y + h, x + w, y + h - rad);
+        shape.lineTo(x + w, y + rad);
+        shape.quadraticCurveTo(x + w, y, x + w - rad, y);
+        shape.lineTo(x + rad, y);
+        shape.quadraticCurveTo(x, y, x, y + rad);
+        pos.x = -20;
+        pos.y = -20;
+
+        const extrudeSettings = {
+          depth: 8,
+          steps: 2,
+          bevelEnabled: true,
+          bevelSegments: 2,
+          bevelSize: 1,
+          bevelThickness: 1,
+        };
+
+        let geometry, material, mesh;
+
+        geometry = new THREE.ExtrudeBufferGeometry(shape, extrudeSettings);
+        material = new THREE.MeshStandardMaterial({
+          color: 0xe0e5e8,
+        });
+        mesh = new THREE.Mesh(geometry, material);
+        mesh.position.z = -20;
+
+        return mesh;
+      }
+      const roundedRect = roundedRectangle();
+
+      scene.add(roundedRect);
+
+      // TEXTURES MESHES
+      const textureBaseColor = new THREE.Color(0xeef3f6);
+      const logoTextureLoader = new THREE.TextureLoader().load(
+        './images/logo.png',
+      );
+      const devicesTextureLoader = new THREE.TextureLoader().load(
+        './images/illustration-devices.png',
+      );
+
+      function textureMesh(
+        boxWidth = 1,
+        boxHeight = 1,
+        boxDepth = 1,
+        textureLoader,
+        posX = 0,
+        posY = 0,
+        posZ = 0,
+      ) {
+        const boxGeometry = new THREE.BoxGeometry(
+          boxWidth,
+          boxHeight,
+          boxDepth,
+        );
+
+        const material = [
+          (new THREE.MeshStandardMaterial().opacity = 0),
+          (new THREE.MeshStandardMaterial().opacity = 0),
+          (new THREE.MeshStandardMaterial().opacity = 0),
+          (new THREE.MeshStandardMaterial().opacity = 0),
+          new THREE.MeshStandardMaterial({
+            color: textureBaseColor,
+            map: textureLoader,
+            transparent: true,
+          }),
+          (new THREE.MeshStandardMaterial().opacity = 0),
+        ];
+        material[4].map.minFilter = THREE.LinearFilter;
+
+        const mesh = new THREE.Mesh(boxGeometry, material);
+
+        mesh.position.set(posX, posY, posZ);
+
+        scene.add(mesh);
+
+        return mesh;
+      }
+
+      const logo = textureMesh(
+        25,
+        25,
+        3,
+        logoTextureLoader,
+        -baseXpos,
+        baseYpos + 180,
+      );
+      const devices = textureMesh(
+        645,
+        325,
+        3,
+        devicesTextureLoader,
+        baseXpos - 30,
+        -baseYpos,
+      );
+
+      // TEXT MESHES
+      const fontLoader = new FontLoader();
+      const barlowCondBold = './fonts/Barlow Condensed_Bold.json';
+      const barlowCondReg = './fonts/Barlow Condensed_Regular.json';
+      const barlowReg = './fonts/Barlow_Regular.json';
+
+      function boxMesh(
+        boxWidth = 1,
+        boxHeight = 1,
+        boxDepth = 1,
+        hexColor = 0xffffff,
+        posX = 0,
+        posY = 0,
+        posZ = 0,
+      ) {
+        const boxGeometry = new THREE.BoxGeometry(
+          boxWidth,
+          boxHeight,
+          boxDepth,
+        );
+
+        const material = new THREE.MeshStandardMaterial({ color: hexColor });
+
+        const mesh = new THREE.Mesh(boxGeometry, material);
+
+        mesh.position.set(posX, posY, posZ);
+
+        scene.add(mesh);
+
+        return mesh;
+      }
+      function textMesh(
+        typeface,
+        str,
+        textSize = 100,
+        textHeight = 50,
+        curveSegments = 12,
+        hexColor = 0xffffff,
+        posX = 0,
+        posY = 0,
+        posZ = 0,
+      ) {
+        fontLoader.load(typeface, (font) => {
+          const textGeometry = new TextGeometry(str, {
+            font: font,
+            size: textSize,
+            height: textHeight,
+            curveSegments: curveSegments,
+          });
+
+          const material = new THREE.MeshStandardMaterial({ color: hexColor });
+
+          const mesh = new THREE.Mesh(textGeometry, material);
+
+          mesh.position.set(posX, posY, posZ);
+
+          scene.add(mesh);
+
+          return mesh;
+        });
+      }
+
+      //text/s that uses Barlow Condensed Bold Font
+      const header = textMesh(
+        barlowCondBold,
+        'POWERFUL INSIGHTS \nINTO YOUR TEAM',
+        33,
+        6,
+        30,
+        0x111111,
+        -baseXpos - 10,
+        baseYpos,
+      );
+
+      const newTextBg = boxMesh(
+        32,
+        23,
+        3,
+        0x111111,
+        -baseXpos + Math.PI,
+        baseYpos + 70,
+      );
+      const newText = textMesh(
+        barlowCondBold,
+        'NEW',
+        9,
+        1,
+        20,
+        0xeef3f6,
+        newTextBg.position.x - Math.PI * 3,
+        newTextBg.position.y - 4.2,
+        1 + newTextBg.position.z,
+      );
+
+      const ctaBtn = boxMesh(
+        150,
+        35.5,
+        3,
+        0xff5c5c,
+        -baseXpos + 60,
+        -logo.position.y + 30,
+      );
+      const ctaBtnText = textMesh(
+        barlowCondBold,
+        'SCHEDULE A DEMO',
+        12,
+        2,
+        20,
+        0xeef3f6,
+        ctaBtn.position.x - 52,
+        ctaBtn.position.y - 5,
+        1 + ctaBtn.position.z,
+      );
+
+      const navTexts = textMesh(
+        barlowCondBold,
+        'PRODUCT          FEATURES          PRICING',
+        9,
+        1,
+        20,
+        0x111111,
+        baseXpos - 250,
+        logo.position.y,
+      );
+      const loginText = textMesh(
+        barlowCondBold,
+        '•         LOGIN',
+        9,
+        1,
+        20,
+        0xa0a1ac,
+        baseXpos - 50,
+        logo.position.y,
+      );
+
+      //text/s that uses Barlow Condensed Regular Font
+      const dashboardText = textMesh(
+        barlowCondReg,
+        'M O N O G R A P H   D A S H B O A R D',
+        9.5,
+        1,
+        20,
+        0xa0a1ac,
+        -baseXpos + 35,
+        baseYpos + 65,
+      );
+
+      const previewText = textMesh(
+        barlowCondReg,
+        'T O   S E E   A   P R E V I E W',
+        9.5,
+        1,
+        20,
+        0xa0a1ac,
+        -baseXpos + 150,
+        -logo.position.y + 27,
+      );
+
+      //text/s that uses Barlow Regular Font
+      const descText = textMesh(
+        barlowReg,
+        'Project planning and time tracking \nfor agile teams',
+        12,
+        2,
+        25,
+        0x5b5f71,
+        -baseXpos - 10,
+        baseYpos - 105,
+      );
+
+      // EVENTS AND RENDER ===============================================================================================================
+      window.addEventListener('resize', onWindowResize);
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+      function update() {
+        requestAnimationFrame(update);
+
+        orbitControls.update();
+        renderer.render(scene, camera);
+      }
+
+      update();
+    </script>
+  </body>
+</html>
