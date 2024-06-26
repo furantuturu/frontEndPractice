@@ -1,6 +1,4 @@
 import { Calculator } from './calculatorClass.js';
-console.log('[]~(￣▽￣)~*');
-console.log('(^///^)');
 
 // Elements
 const numKeys = document.querySelectorAll(
